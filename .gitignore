@@ -8,9 +8,20 @@
 /.bundle
 
 # Ignore the default SQLite database.
+/vendor/bundle
+/log/*
+/tmp/*
 /db/*.sqlite3
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/public/system/*
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.project
+config/initializers/secret_token.rb
