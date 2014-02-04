@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <div id="side">
 
-<%= yield %>
+      <% if (user_signed_in?)%>
+          <h3> <%="Hello, #{current_user.email}"  %></h3>
+          <h3> <%= button_to "Sing out",   destroy_session_path(:user), :method => :delete %></h3>
+      <% else %>
+          <h3> <%= button_to "Sing In",   new_session_path(:user), :method => :get   %></h3>
+      <% end %>
 
+
+    </div>
+    <br/>
+
+  <%= yield %>
+
+</div>
 </body>
 </html>
