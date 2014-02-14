@@ -33,6 +33,8 @@ group :doc do
 
 gem 'devise'
 
+gem 'amistad'
+
 end
 
 # Use ActiveModel has_secure_password
