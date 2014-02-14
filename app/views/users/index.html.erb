@@ -11,11 +11,14 @@
 
   <tbody>
     <% @users.each do |user| %>
+      <% friends_with = user.friend_with? (current_user) %>
+
       <tr>
         <td><%= user.email %></td>
-        <td><%= link_to 'Show', user %></td>
+        <td><%= friends_with ? "friend" : "not friend"%></td>
+        <!--<td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', (user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
       </tr>
     <% end %>
   </tbody>
