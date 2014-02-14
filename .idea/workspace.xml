@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" afterPath="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dropbox.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392380755207" ignored="false" />
     <file path="/Ruby Console" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1390485881831" ignored="false" />
     <file path="/routes.rb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1391444000157" ignored="false" />
-    <file path="/index.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392393994676" ignored="false" />
+    <file path="/index.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392395802771" ignored="false" />
     <file path="/users_controller.rb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392393442018" ignored="false" />
     <file path="$USER_HOME$/RubymineProjects/depot_sample_project/app/views/layouts/application.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1391520165838" ignored="false" />
     <file path="/application.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392392782899" ignored="false" />
@@ -46,7 +42,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="81" selection-start="162" selection-end="162" vertical-scroll-proportion="0.3508772">
+            <state line="21" column="57" selection-start="541" selection-end="541" vertical-scroll-proportion="0.61403507">
               <folding />
             </state>
           </provider>
@@ -864,7 +860,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="81" selection-start="162" selection-end="162" vertical-scroll-proportion="0.3508772">
+        <state line="21" column="57" selection-start="541" selection-end="541" vertical-scroll-proportion="0.61403507">
           <folding />
         </state>
       </provider>

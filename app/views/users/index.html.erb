@@ -16,6 +16,12 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= friends_with ? "friend" : "not friend"%></td>
+        <% if friends_with %>
+            <td><%= button_to 'Remove from friends',  user.remove_friendship(current_user) %></td>
+            <% else %>
+            <td><%= button_to  'Add to friends', "invite"%></td>
+           <% end %>
+
         <!--<td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', (user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
