@@ -7,8 +7,11 @@ Dropbox::Application.routes.draw do
   # root 'welcome#index'
     root 'users#index'
 
-  resources :users
-
+  resources :users do
+    member do
+      post 'invite'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

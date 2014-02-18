@@ -12,14 +12,17 @@
   <tbody>
     <% @users.each do |user| %>
       <% friends_with = user.friend_with? (current_user) %>
+      <% invited = current_user.invited? (user) %>
 
       <tr>
         <td><%= user.email %></td>
         <td><%= friends_with ? "friend" : "not friend"%></td>
+
+        <td><%= invited ? "invite send" : "invite not send"%></td>
         <% if friends_with %>
             <td><%= button_to 'Remove from friends',  user.remove_friendship(current_user) %></td>
             <% else %>
-            <td><%= button_to  'Add to friends', "invite"%></td>
+            <td><%= button_to 'Add to friends', invite_user_path(user: user), remote: true, method: :post , data: { confirm: 'Are you sure?'}%></td>
            <% end %>
 
         <!--<td><%= link_to 'Show', user %></td>

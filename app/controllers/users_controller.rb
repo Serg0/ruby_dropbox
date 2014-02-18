@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_user, only: [:show, :edit, :update, :destroy, :invite]
 
 
   # GET /users
@@ -64,6 +64,32 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+  def invite
+
+    printf "\n\n\n =++++++++++++++++++++++++++++++++++++++++++++invite+++++++++++++++++++++\n\n\n"
+    printf user.inspect
+    #printf "user_id = #{user_id}"
+
+    user = params[:user]
+
+    respond_to do |format|
+      if (user)
+        if  @user.invite(user)
+          format.html { redirect_to users_url, notice: 'Invite sended'  }
+        else
+          format.html { redirect_to users_url, notice: 'Unable to send invite' }
+        end
+      else
+        format.html { redirect_to users_url, notice: 'Unable to send invite. User is null' }
+      end
+
+  end
+
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
