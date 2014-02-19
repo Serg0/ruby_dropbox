@@ -3,15 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/index.html.erb" afterPath="$PROJECT_DIR$/app/views/users/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="dropbox.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392795257212" ignored="false" />
     <file path="/Ruby Console" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1390485881831" ignored="false" />
     <file path="/routes.rb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392798817761" ignored="false" />
-    <file path="/index.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392804981844" ignored="false" />
+    <file path="/index.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392806619384" ignored="false" />
     <file path="/users_controller.rb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392804172314" ignored="false" />
     <file path="$USER_HOME$/RubymineProjects/depot_sample_project/app/views/layouts/application.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1391520165838" ignored="false" />
     <file path="/application.html.erb" changelist="54a1e6fb-5b10-4bb8-bf5e-ac784e584c9d" time="1392392782899" ignored="false" />
@@ -46,19 +44,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="39" selection-start="262" selection-end="262" vertical-scroll-proportion="-7.9583335">
+            <state line="16" column="115" selection-start="331" selection-end="331" vertical-scroll-proportion="0.42418426">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="active_record_friend_model.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247@ruby_dropbox/gems/amistad-0.9.2/lib/amistad/active_record_friend_model.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="9" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="63" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.35779816">
+            <state line="79" column="65" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -68,15 +75,6 @@
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="11" column="32" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mongo_friend_model.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247@ruby_dropbox/gems/amistad-0.9.2/lib/amistad/mongo_friend_model.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="24" selection-start="369" selection-end="369" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,7 +92,7 @@
       <file leaf-file-name="friend_model.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247@ruby_dropbox/gems/amistad-0.9.2/lib/amistad/friend_model.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="38" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+            <state line="5" column="44" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -821,30 +819,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="65" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247@ruby_dropbox/gems/amistad-0.9.2/lib/amistad/friend_model.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="38" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0">
+        <state line="5" column="44" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247@ruby_dropbox/gems/amistad-0.9.2/lib/amistad/active_record_friend_model.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="59" selection-start="5470" selection-end="5470" vertical-scroll-proportion="0.44941634">
+        <state line="3" column="9" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="39" selection-start="262" selection-end="262" vertical-scroll-proportion="-7.9583335">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="63" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.35779816">
+        <state line="16" column="115" selection-start="331" selection-end="331" vertical-scroll-proportion="0.42418426">
           <folding />
         </state>
       </provider>
