@@ -15,6 +15,7 @@
       <% invited = current_user.invited? (user) %>
 
       <tr>
+        <td><%= user.id %></td>
         <td><%= user.email %></td>
         <td><%= friends_with ? "friend" : "not friend"%></td>
 
@@ -22,7 +23,7 @@
         <% if friends_with %>
             <td><%= button_to 'Remove from friends',  user.remove_friendship(current_user) %></td>
             <% else %>
-            <td><%= button_to 'Add to friends', invite_user_path(user: user), remote: true, method: :post , data: { confirm: 'Are you sure?'}%></td>
+            <td><%= link_to 'Add to friends', invite_user_path(user.id), remote: false, method: :post , data: { confirm: 'Are you sure?'}%></td>
            <% end %>
 
         <!--<td><%= link_to 'Show', user %></td>

@@ -69,20 +69,32 @@ class UsersController < ApplicationController
   def invite
 
     printf "\n\n\n =++++++++++++++++++++++++++++++++++++++++++++invite+++++++++++++++++++++\n\n\n"
-    printf user.inspect
-    #printf "user_id = #{user_id}"
+    #printf user.inspect
+    #
 
-    user = params[:user]
+    user_id = params[:id]
+    printf "user_id = #{user_id}"
+    printf "\ncurrent_user_id = #{current_user.id}"
+
+
+    printf "\n\n\n =++++++++++++++++++++++++++++++++++++++++++++invite+++++++++++++++++++++\n\n\n"
+    user = User.find(user_id)
+
 
     respond_to do |format|
       if (user)
-        if  @user.invite(user)
+        if  current_user.invite(user)
+
           format.html { redirect_to users_url, notice: 'Invite sended'  }
+          printf "\n\n\n =+++++++++++++++++++++++++'Invite sended'+++++++++++++++++++++\n\n\n"
+
         else
           format.html { redirect_to users_url, notice: 'Unable to send invite' }
+          printf "\n\n\n =++++++++++++++++++++++Unable to send invite+++++++++++++++++++++\n\n\n"
         end
       else
         format.html { redirect_to users_url, notice: 'Unable to send invite. User is null' }
+        printf "\n\n\n =+++++++++++++++++++++'Unable to send invite. User is null'+++++++++++++++++++\n\n\n"
       end
 
   end
