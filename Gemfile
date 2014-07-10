@@ -35,6 +35,10 @@ gem 'devise'
 
 gem 'amistad'
 
+gem 'omniauth-facebook'
+
+gem 'omniauth-twitter'
+
 end
 
 # Use ActiveModel has_secure_password
