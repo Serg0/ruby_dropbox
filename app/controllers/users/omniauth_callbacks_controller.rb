@@ -39,7 +39,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     p env["omniauth.auth"]
     user = User.from_omniauth(env["omniauth.auth"])
     if user.persisted?
-      flash[:notice] = "You are in..!!! Go to edit profile to see the status for the accounts"
+      flash[:notice] = "You are in..!!!"
       sign_in_and_redirect(user)
     else
       session["devise.user_attributes"] = user.attributes
