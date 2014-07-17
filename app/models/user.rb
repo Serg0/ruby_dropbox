@@ -52,4 +52,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def email_required?
+    super && provider.blank?
+  end
+
+#You can use an equivalent method for the password :
+
+  def password_required?
+    super && provider.blank?
+  end
+
 end
