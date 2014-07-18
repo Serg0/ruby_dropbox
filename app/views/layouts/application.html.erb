@@ -10,8 +10,10 @@
     <div id="side">
 
       <% if (user_signed_in?)%>
-          <h3> <%="Hello, #{current_user.email}"  %></h3>
+          <% username = current_user.username.present? ? current_user.username : current_user.email %>
+          <h3> <%="Hello, #{username}"  %></h3>
           <h3> <%= button_to "Sing out",   destroy_session_path(:user), :method => :delete %></h3>
+          <h3> <%= button_to "Edit Profile", edit_user_registration_path, :method => :get %></h3>
       <% else %>
           <h3> <%= button_to "Sing In",   new_session_path(:user), :method => :get   %></h3>
       <% end %>
