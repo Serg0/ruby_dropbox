@@ -30,7 +30,7 @@
 
           <tr>
             <td><%= user.id %></td>
-            <td><%= user.email %></td>
+            <td><%= user.username.blank? ? user.email : user.username%></td>
             <td><%= friends_with ? "friend" : "not friend"%></td>
 
             <td><%= invited ? "invite send" : "invite not send"%></td>

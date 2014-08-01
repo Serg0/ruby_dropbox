@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
   validates :email, uniqueness: true, allow_nil: true
+  scope :without_user, lambda{|user| user ? {:conditions => ["users.id != ?", user.id]} : {} }
 
 
 =begin

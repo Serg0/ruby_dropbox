@@ -9,7 +9,14 @@ Dropbox::Application.routes.draw do
 
   resources :users do
     member do
-      post 'invite'
+      post :invite
+      post :cancel_invite
+    end
+    collection do
+      get :friends
+      get :out_invites
+      get :in_invites
+      get :not_friends
     end
   end
 
