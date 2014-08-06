@@ -14,6 +14,12 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="Rails dropbox: test" uuid="4cb99b72-92bf-42a7-b071-0922c2fb115c">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <libraries />
+    </data-source>
   </component>
 </project>
 
