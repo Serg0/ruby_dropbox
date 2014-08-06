@@ -11,9 +11,11 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 
-    <% else %>
+    <% elsif resource.provider.present? %>
         <div> <H3><%= "Signed with #{resource.provider.titleize}" %> </H3>  </div>
 
+    <% else %>
+         <div> <H3><%= "Signed with email" %> </H3>  </div>
     <% end %>
 
     <div><%= f.label :username %>
