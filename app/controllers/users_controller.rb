@@ -91,67 +91,43 @@ TODO
 
 
   def invite
-
-    printf "\n\n\n =++++++++++++++++++++++++++++++++++++++++++++invite+++++++++++++++++++++\n\n\n"
-    #printf user.inspect
-    #
-
-    user_id = params[:id]
-    printf "user_id = #{user_id}"
-    printf "\ncurrent_user_id = #{current_user.id}"
-
-
-    printf "\n\n\n =++++++++++++++++++++++++++++++++++++++++++++invite+++++++++++++++++++++\n\n\n"
-    user = User.find(user_id)
-
-
-    respond_to do |format|
-      if (user)
-        if  current_user.invite(user)
-
-          format.html { redirect_to users_url, notice: 'Invite sended'  }
-          printf "\n\n\n =+++++++++++++++++++++++++'Invite sended'+++++++++++++++++++++\n\n\n"
-
-        else
-          format.html { redirect_to users_url, notice: 'Unable to send invite' }
-          printf "\n\n\n =++++++++++++++++++++++Unable to send invite+++++++++++++++++++++\n\n\n"
-        end
-      else
-        format.html { redirect_to users_url, notice: 'Unable to send invite. User is null' }
-        printf "\n\n\n =+++++++++++++++++++++'Unable to send invite. User is null'+++++++++++++++++++\n\n\n"
-      end
-
+    send(:friend_action, :invite, 'Invite successfully sent', 'Unable to send invite')
   end
 
 
-  end
-
-  enum action: [ :invite, :approve ]
-  
   def approve
+    send(:friend_action, :approve, 'Friend request approved', 'Unable to approve friend request' )
+  end
+
+
+  @@action_options = [:invite, :approve]
+
+  def friend_action(action, success_message, fail_msg)
 
     user = User.find(params[:id])
 
-
     respond_to do |format|
-      if (user)
-        if  current_user.approve(user)
+      if !@@action_options.include?(action)
 
-          format.html { redirect_to users_url, notice: 'Friend request approved'  }
-
-        else
-          format.html { redirect_to users_url, notice: 'Unable to approve friend request' }
-        end
+        msg = "Unable to find action #{action}"
+        format.html { redirect_to :back, notice: msg }
       else
-        format.html { redirect_to users_url, notice: 'Unable to send invite. User is not found' }
-        printf "\n\n\n =+++++++++++++++++++++'Unable to send invite. User is null'+++++++++++++++++++\n\n\n"
+        if (user)
+          if  current_user.send(action, user)
+            format.html { redirect_to :back, notice: success_message }
+          else
+            format.html { redirect_to :back, notice: fail_msg }
+          end
+        else
+          fail_msg_not_found = "#{fail_msg}. User not found"
+          format.html { redirect_to :back, notice: fail_msg_not_found }
+        end
       end
 
     end
 
 
   end
-
 
   private
     # Use callbacks to share common setup or constraints between actions.

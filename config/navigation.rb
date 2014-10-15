@@ -81,5 +81,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :index, 'ALL USERS', users_path
     primary.item :friends, 'FRIENDS', friends_users_path
     primary.item :not_friends, 'NOT FRIENDS', not_friends_users_path
+    primary.item :in_invites, 'IN INVITES', in_invites_users_path
+    primary.item :out_invites, 'OUT INVITES', out_invites_users_path
   end
 end

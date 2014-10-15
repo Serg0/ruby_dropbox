@@ -1,4 +1,4 @@
-<h1>Inbound invites</h1>
+<h1>outbound invites</h1>
 <tbody>
 <div id="columns">
   <div id="side">
@@ -14,7 +14,6 @@
           <td><%= user.id %></td>
           <td><%= user.username.blank? ? user.email : user.username %></td>
 
-          <td><%= button_to 'Add to friends', approve_user_path(user.id), remote: false, method: :put, data: {confirm: 'Are you sure?'} %></td>
         </tr>
     <% end %>
 
