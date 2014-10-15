@@ -11,6 +11,7 @@ Dropbox::Application.routes.draw do
     member do
       post :invite
       post :cancel_invite
+      put :approve
     end
     collection do
       get :friends

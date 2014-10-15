@@ -15,6 +15,7 @@
 
       <%= render_navigation %>
 
+
       <!--<ul>
         <li><a href="http://www....">Home</a></li>
         <li><a href="http://www..../faq">Questions</a></li>
@@ -28,21 +29,21 @@
       <% @users.each do |user| %>
           <% friends_with = user.friend_with? (current_user) %>
           <% invited = current_user.invited? (user) %>
-          <% invited_by = current_user.invited_by? (user) %>
+          <% invited_by = user.invited_by? (current_user) %>
 
           <tr>
             <td><%= user.id %></td>
             <td><%= user.username.blank? ? user.email : user.username%></td>
-            <td><%= friends_with ? "/friend/" : "/not friend/"%></td>
+            <td><%= friends_with ? "friend" : "not friend"%></td>
 
-            <td><%= invited ? "/invite send/" : "/invite not send/"%></td>
+            <td><%= invited ? "invite send" : "invite not send"%></td>
 
-            <td><%= invited_by ? "/invite received/" : "/invite not received/"%></td>
+            <td><%= invited_by ? "invite not received" : "invite received"%></td>
 
             <% if friends_with %>
                 <td><%= button_to 'Remove from friends',  user.remove_friendship(current_user) %></td>
             <% else %>
-                <td><%= button_to 'Send friends invite', invite_user_path(user.id), remote: false, method: :post , data: { confirm: 'Are you sure?'}%></td>
+                <td><%= button_to 'Add to friends', invite_user_path(user.id), remote: false, method: :post , data: { confirm: 'Are you sure?'}%></td>
             <% end %>
 
             <!--<td><%= link_to 'Show', user %></td>

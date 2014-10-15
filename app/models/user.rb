@@ -8,7 +8,16 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true, allow_nil: true
   scope :without_user, lambda{|user| user ? {:conditions => ["users.id != ?", user.id]} : {} }
+  scope :not_friends, ->(user){without_user(user).select{|item| ! user.friend_with?(item)}}
+  scope :in_invited, ->(user){without_user(user).select{|item| ! user.friend_with?(item)}}
+  scope :in_invited, lambda{|user|  {:conditions => user.invited  }}
+  scope :friends, lambda{|user|  {:conditions => user.friends}}
 
+
+def self.friend_status(user)
+  self.invited_by(user)
+
+end
 
 =begin
   def self.from_omniauth(auth, current_user)

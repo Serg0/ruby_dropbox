@@ -11,6 +11,30 @@ class UsersController < ApplicationController
 
   end
 
+  def friends
+    @users = current_user.friends
+  end
+
+  def not_friends
+    @users = User.not_friends(current_user)
+  end
+
+  def in_invites
+    @users = current_user.pending_invited_by
+  end
+
+  def out_invites
+    @users = current_user.pending_invited
+  end
+
+=begin
+TODO
+  get :
+  get :out_invites
+  get :in_invites
+  get :not_friends
+=end
+
   # GET /users/1
   # GET /users/1.json
   def show
@@ -98,6 +122,32 @@ class UsersController < ApplicationController
       end
 
   end
+
+
+  end
+
+  enum action: [ :invite, :approve ]
+  
+  def approve
+
+    user = User.find(params[:id])
+
+
+    respond_to do |format|
+      if (user)
+        if  current_user.approve(user)
+
+          format.html { redirect_to users_url, notice: 'Friend request approved'  }
+
+        else
+          format.html { redirect_to users_url, notice: 'Unable to approve friend request' }
+        end
+      else
+        format.html { redirect_to users_url, notice: 'Unable to send invite. User is not found' }
+        printf "\n\n\n =+++++++++++++++++++++'Unable to send invite. User is null'+++++++++++++++++++\n\n\n"
+      end
+
+    end
 
 
   end

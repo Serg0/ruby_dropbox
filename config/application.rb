@@ -4,6 +4,7 @@ require 'omniauth-facebook'
 require 'omniauth-twitter'
 require 'rails/all'
 require 'amistad'
+require 'simple-navigation'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

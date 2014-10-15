@@ -39,6 +39,8 @@ gem 'omniauth-facebook'
 
 gem 'omniauth-twitter'
 
+gem "simple-navigation"
+
 end
 
 # Use ActiveModel has_secure_password
