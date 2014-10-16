@@ -10,35 +10,8 @@ class User < ActiveRecord::Base
   scope :without_user, lambda{|user| user ? {:conditions => ["users.id != ?", user.id]} : {} }
   scope :not_friends, ->(user){without_user(user).select{|item| ! (user.friend_with?(item) ||
       user.invited?(item) || user.invited_by?(item))}}
-  # scope :in_invited, ->(user){without_user(user).select{|item| ! user.friend_with?(item)}}
   scope :in_invited, lambda{|user|  {:conditions => user.invited  }}
   scope :friends, lambda{|user|  {:conditions => user.friends}}
-
-
-def self.friend_status(user)
-  self.invited_by(user)
-
-end
-
-=begin
-  def self.from_omniauth(auth, current_user)
-    authorization = Authorization.where(:provider => auth.provider, :uid => auth.uid.to_s, :token => auth.credentials.token, :secret => auth.credentials.secret).first_or_initialize
-    if authorization.user.blank?
-      user = current_user.nil? ? User.where('email = ?', auth["info"]["email"]).first : current_user
-      if user.blank?
-        user = User.new
-        user.password = Devise.friendly_token[0,10]
-        user.name = auth.info.name
-        user.email = auth.info.email
-        auth.provider == "twitter" ?  user.save(:validate => false) :  user.save
-      end
-      authorization.username = auth.info.nickname
-      authorization.user_id = user.id
-      authorization.save
-    end
-    authorization.user
-  end
-=end
 
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
@@ -53,9 +26,6 @@ end
 
   def self.from_omniauth(auth)
 
-    p "\n\n\n\n============\n\n\n\n"
-    p auth.to_json
-    p "\n\n\n\n============\n\n\n\n"
     where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
