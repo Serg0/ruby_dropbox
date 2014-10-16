@@ -79,9 +79,9 @@ SimpleNavigation::Configuration.run do |navigation|
 
   navigation.items do |primary|
     # primary.item :index, 'ALL USERS', users_path
-    primary.item :friends, 'FRIENDS', friends_users_path
-    primary.item :not_friends, 'NOT FRIENDS', not_friends_users_path
-    primary.item :in_invites, 'IN INVITES', in_invites_users_path
-    primary.item :out_invites, 'OUT INVITES', out_invites_users_path
+    primary.item :friends, "FRIENDS #{current_user.friends.count}", friends_users_path
+    primary.item :not_friends, "NOT FRIENDS #{current_user.not_friends.count}", not_friends_users_path
+    primary.item :in_invites, "IN INVITES #{current_user.pending_invited_by.count}", in_invites_users_path
+    primary.item :out_invites, "OUT INVITES #{current_user.pending_invited.count}", out_invites_users_path
   end
 end

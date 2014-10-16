@@ -10,9 +10,10 @@ class User < ActiveRecord::Base
   scope :without_user, lambda{|user| user ? {:conditions => ["users.id != ?", user.id]} : {} }
   scope :not_friends, ->(user){without_user(user).select{|item| ! (user.friend_with?(item) ||
       user.invited?(item) || user.invited_by?(item))}}
-  scope :in_invited, lambda{|user|  {:conditions => user.invited  }}
-  scope :friends, lambda{|user|  {:conditions => user.friends}}
 
+  def not_friends
+    User.not_friends(self)
+  end
   def self.new_with_session(params,session)
     if session["devise.user_attributes"]
       new(session["devise.user_attributes"],without_protection: true) do |user|
