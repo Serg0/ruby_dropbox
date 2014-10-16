@@ -33,21 +33,18 @@
           <tr>
             <td><%= user.id %></td>
             <td><%= user.username.blank? ? user.email : user.username%></td>
-            <td><%= friends_with ? "/friend/" : "/not friend/"%></td>
+           <!-- <td><%= friends_with ? "/friend/" : "/not friend/"%></td>
 
             <td><%= invited ? "/invite send/" : "/invite not send/"%></td>
 
             <td><%= invited_by ? "/invite received/" : "/invite not received/"%></td>
-
+-->
             <% if friends_with %>
-                <td><%= button_to 'Remove from friends',  user.remove_friendship(current_user) %></td>
+                <td><%= button_to 'Remove from friends',  remove_friendship_path(user.id), remote: false, method: :delete , data: { confirm: 'Are you sure?'}%></td>
             <% else %>
-                <td><%= button_to 'Send friends invite', invite_user_path(user.id), remote: false, method: :post , data: { confirm: 'Are you sure?'}%></td>
+                <td><%= button_to 'Send friends invite', invite_user_path(user.id), remote: false, method: :put , data: { confirm: 'Are you sure?'}%></td>
             <% end %>
 
-            <!--<td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', (user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
           </tr>
       <% end %>
 

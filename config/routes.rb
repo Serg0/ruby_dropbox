@@ -5,12 +5,14 @@ Dropbox::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-    root 'users#index'
+    root 'users#friends'
 
   resources :users do
     member do
       post :invite
-      post :cancel_invite
+      delete :cancel_invite
+      delete :remove_friendship
+      delete :cancel_invite
       put :approve
     end
     collection do

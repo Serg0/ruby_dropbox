@@ -1,4 +1,5 @@
-<h1>outbound invites</h1>
+<h1>Out invites</h1>
+
 <tbody>
 <div id="columns">
   <div id="side">
@@ -7,19 +8,27 @@
 
   </div>
   <div id="main">
+    <% if @users.empty? %>
+        <H1>You dont have any friend invites</H1>
+    <% else %>
+        <table>
 
-    <% @users.each do |user| %>
+          <% @users.each do |user| %>
+              <tr>
+                <td><%= user.username.blank? ? user.email : user.username %></td>
 
-        <tr>
-          <td><%= user.id %></td>
-          <td><%= user.username.blank? ? user.email : user.username %></td>
+                <td><%= button_to 'Cancel friend request', cancel_invite_user_path(user.id), remote: false, method: :delete, data: {confirm: 'Are you sure?'} %></td>
 
-        </tr>
+              </tr>
+          <% end %>
+        </table>
     <% end %>
 
   </div>
 </div>
 
-</tbody>
-</table>
 
+</tbody>
+
+
+<br>

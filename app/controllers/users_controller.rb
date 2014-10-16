@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
     @users = User.without_user(current_user)
-
   end
 
   def friends
@@ -94,13 +93,19 @@ TODO
     send(:friend_action, :invite, 'Invite successfully sent', 'Unable to send invite')
   end
 
-
   def approve
     send(:friend_action, :approve, 'Friend request approved', 'Unable to approve friend request' )
   end
 
+  def remove_friendship
+    send(:friend_action, :remove_friendship, 'User removed from friends', 'Unable to remove friend' )
+  end
 
-  @@action_options = [:invite, :approve]
+  def cancel_invite
+    send(:friend_action, :remove_friendship, 'Invite canceled', 'Unable to cancel invite')
+  end
+
+  @@action_options = [:invite, :approve, :remove_friendship]
 
   def friend_action(action, success_message, fail_msg)
 
