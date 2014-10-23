@@ -41,6 +41,8 @@ gem 'omniauth-twitter'
 
 gem "simple-navigation"
 
+gem "dropbox-sdk"
+
 end
 
 # Use ActiveModel has_secure_password

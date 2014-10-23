@@ -5,6 +5,7 @@ require 'omniauth-twitter'
 require 'rails/all'
 require 'amistad'
 require 'simple-navigation'
+require 'dropbox_sdk'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

@@ -1,3 +1,7 @@
+<head>
+  <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="sd6r18b9ijjrxsk"></script>
+</head>
+
 <h1>Friends</h1>
 
 <tbody>
@@ -19,6 +23,9 @@
 
               <td><%= button_to 'Remove from friends', remove_friendship_user_path(user.id), remote: false, method: :delete, data: {confirm: 'Are you sure?'} %></td>
 
+              <td><a href="#" data-dropbox-user-id=<%=user.id%>>Send File</a></td>
+
+
             </tr>
         <% end %>
         </table>
@@ -26,6 +33,8 @@
 
   </div>
 </div>
+
+
 
 
 </tbody>

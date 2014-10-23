@@ -45,6 +45,8 @@ GEM
       railties (>= 3.2.6, < 5)
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dropbox-sdk (1.6.4)
+      json
     erubis (2.7.0)
     execjs (2.0.2)
     faraday (0.9.0)
@@ -164,6 +166,7 @@ DEPENDENCIES
   amistad
   coffee-rails (~> 4.0.0)
   devise
+  dropbox-sdk
   jbuilder (~> 1.2)
   jquery-rails
   omniauth-facebook
