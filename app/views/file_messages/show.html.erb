@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sender:</strong>
+  <%= @file_message.sender_id %>
+</p>
+
+<p>
+  <strong>Recipient:</strong>
+  <%= @file_message.recipient_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @file_message.name %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @file_message.link %>
+</p>
+
+<p>
+  <strong>Bytes:</strong>
+  <%= @file_message.bytes %>
+</p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @file_message.icon %>
+</p>
+
+<p>
+  <strong>Thumbnaillink:</strong>
+  <%= @file_message.thumbnailLink %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @file_message.created_at %>
+</p>
+
+<p>
+  <strong>Is new:</strong>
+  <%= @file_message.is_new %>
+</p>
+
+<%= link_to 'Edit', edit_file_message_path(@file_message) %> |
+<%= link_to 'Back', file_messages_path %>

@@ -1,0 +1,43 @@
+<h1>Listing file_messages</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sender</th>
+      <th>Recipient</th>
+      <th>Name</th>
+      <th>Link</th>
+      <th>Bytes</th>
+      <th>Icon</th>
+      <th>Thumbnaillink</th>
+      <th>Created at</th>
+      <th>Is new</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @file_messages.each do |file_message| %>
+      <tr>
+        <td><%= file_message.sender_id %></td>
+        <td><%= file_message.recipient_id %></td>
+        <td><%= file_message.name %></td>
+        <td><%= file_message.link %></td>
+        <td><%= file_message.bytes %></td>
+        <td><%= file_message.icon %></td>
+        <td><%= file_message.thumbnailLink %></td>
+        <td><%= file_message.created_at %></td>
+        <td><%= file_message.is_new %></td>
+        <td><%= link_to 'Show', file_message %></td>
+        <td><%= link_to 'Edit', edit_file_message_path(file_message) %></td>
+        <td><%= link_to 'Destroy', file_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New File message', new_file_message_path %>

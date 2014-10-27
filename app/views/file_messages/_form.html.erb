@@ -1,0 +1,53 @@
+<%= form_for(@file_message) do |f| %>
+  <% if @file_message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@file_message.errors.count, "error") %> prohibited this file_message from being saved:</h2>
+
+      <ul>
+      <% @file_message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sender_id %><br>
+    <%= f.text_field :sender_id %>
+  </div>
+  <div class="field">
+    <%= f.label :recipient_id %><br>
+    <%= f.text_field :recipient_id %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :bytes %><br>
+    <%= f.text_field :bytes %>
+  </div>
+  <div class="field">
+    <%= f.label :icon %><br>
+    <%= f.text_field :icon %>
+  </div>
+  <div class="field">
+    <%= f.label :thumbnailLink %><br>
+    <%= f.text_field :thumbnailLink %>
+  </div>
+  <div class="field">
+    <%= f.label :created_at %><br>
+    <%= f.text_field :created_at %>
+  </div>
+  <div class="field">
+    <%= f.label :is_new %><br>
+    <%= f.text_field :is_new %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

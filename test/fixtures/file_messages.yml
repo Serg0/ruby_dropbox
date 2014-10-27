@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sender_id: MyString
+  recipient_id: MyString
+  name: MyString
+  link: MyString
+  bytes: MyString
+  icon: MyString
+  thumbnailLink: MyString
+  created_at: MyString
+  is_new: MyString
+
+two:
+  sender_id: MyString
+  recipient_id: MyString
+  name: MyString
+  link: MyString
+  bytes: MyString
+  icon: MyString
+  thumbnailLink: MyString
+  created_at: MyString
+  is_new: MyString

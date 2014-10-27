@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718093906) do
+ActiveRecord::Schema.define(version: 20141023151109) do
+
+  create_table "file_messages", force: true do |t|
+    t.integer  "sender_id",     limit: 8,                null: false
+    t.integer  "recipient_id",  limit: 8,                null: false
+    t.string   "name"
+    t.text     "link"
+    t.integer  "bytes",         limit: 8
+    t.text     "icon"
+    t.text     "thumbnailLink"
+    t.boolean  "new",                     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendships", force: true do |t|
     t.integer "friendable_id"
