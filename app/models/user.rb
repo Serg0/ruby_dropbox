@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
 
   validates :email, uniqueness: true, allow_nil: true
-  scope :without_user, lambda{|user| user ? {:conditions => ["users.id != ?", user.id]} : {} }
+  scope :without_user, lambda{|user| user ? where("users.id != ?", user.id) : {} }
   scope :not_friends, ->(user){without_user(user).select{|item| ! (user.friend_with?(item) ||
       user.invited?(item) || user.invited_by?(item))}}
 

@@ -1,5 +1,7 @@
 class FileMessagesController < ApplicationController
   before_action :set_file_message, only: [:show, :edit, :update, :destroy]
+  after_filter :flash_to_headers
+
 
   # GET /file_messages
   # GET /file_messages.json
@@ -24,15 +26,35 @@ class FileMessagesController < ApplicationController
   # POST /file_messages
   # POST /file_messages.json
   def create
+    file_message_params.merge!(:recipient_id => params[:recipient_id], :sender_id => current_user.id)
+    pp file_message_params
     @file_message = FileMessage.new(file_message_params)
 
     respond_to do |format|
       if @file_message.save
-        format.html { redirect_to @file_message, notice: 'File message was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @file_message }
+        redirect_to request.referer, notice: 'File message was successfully sent.'
+
+=begin
+        format.js {
+          pp '-------------------'
+          pp "format js"
+          pp '-------------------'
+
+        }
+=end
+
+
+=begin
+         format.json {
+           pp '-------------------'
+           pp "format json"
+           pp '-------------------'
+           render action: 'show', status: :created, location: @file_message }
+=end
       else
-        format.html { render action: 'new' }
-        format.json { render json: @file_message.errors, status: :unprocessable_entity }
+        redirect_to request.referer, notice: 'File message was NOT successfully sent.'
+        # format.js { render action: 'new' }
+        # format.json { render json: @file_message.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -69,6 +91,14 @@ class FileMessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def file_message_params
-      params.require(:file_message).permit(:sender_id, :recipient_id, :name, :link, :bytes, :icon, :thumbnailLink, :created_at, :is_new)
+      params.require(:file_message).merge(:recipient_id => params[:recipient_id], :sender_id => current_user.id).permit(:sender_id, :recipient_id, :name, :link, :bytes, :icon, :thumbnailLink, :created_at, :new)
     end
+
+  def flash_to_headers
+    return unless request.xhr?
+    response.headers['X-Message'] = flash[:error]  unless flash[:error].blank?
+    # repeat for other flash types...
+
+    flash.discard  # don't want the flash to appear when you reload page
+  end
 end
