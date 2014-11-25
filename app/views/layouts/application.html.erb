@@ -25,8 +25,22 @@
 <br/>
 
 <div id="msg">
-  <%= render "layouts/flash"%>
+  <%= render "layouts/flash" %>
 </div>
+
+<% if (user_signed_in?) %>
+    <div id="columns">
+      <div id="side">
+        <div id="navigation">
+
+          <%= render_navigation :expand_all => true %>
+
+        </div>
+      </div>
+    </div>
+
+<% end %>
+
 
 <%= yield %>
 
