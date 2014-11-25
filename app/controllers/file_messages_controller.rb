@@ -31,17 +31,10 @@ class FileMessagesController < ApplicationController
     respond_to do |format|
       if @file_message.save
         flash[:notice] = 'File message was successfully sent.'
-        # format.html{redirect_to friends_users_path, notice: 'File message was successfully sent.'}
-        # format.json{redirect_to friends_users_path, notice:'File message was successfully sent.'}
-        # format.js{redirect_to friends_users_path, notice: 'File message was successfully sent.'}
         format.js
       else
         flash[:alert] = 'File message was NOT sent.'
-        # format.html{redirect_to friends_users_path, notice: 'File message was NOT successfully sent.'}
-        # format.json{redirect_to friends_users_path, notice: 'File message was NOT successfully sent.'}
-        # format.js{redirect_to friends_users_path, notice: 'File message was successfully sent.'}
         format.js
-        # redirect_to request.referer, notice: 'File message was  successfully sent.'
       end
     end
   end
