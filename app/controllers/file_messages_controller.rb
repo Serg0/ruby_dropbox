@@ -23,6 +23,7 @@ class FileMessagesController < ApplicationController
 
   # POST /file_messages
   # POST /file_messages.json
+  after_filter :clear_flash
   def create
     file_message_params.merge!(:recipient_id => params[:recipient_id], :sender_id => current_user.id)
     pp file_message_params
@@ -38,6 +39,12 @@ class FileMessagesController < ApplicationController
       end
     end
   end
+
+  def clear_flash
+    flash[:alert] = nil
+    flash[:notice] = nil
+  end
+
 
   # PATCH/PUT /file_messages/1
   # PATCH/PUT /file_messages/1.json
