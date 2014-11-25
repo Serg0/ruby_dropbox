@@ -27,10 +27,15 @@ class FileMessagesController < ApplicationController
   def create
     file_message_params.merge!(:recipient_id => params[:recipient_id], :sender_id => current_user.id)
     pp file_message_params
+
+
     @file_message = FileMessage.new(file_message_params)
 
     respond_to do |format|
-      if @file_message.save
+      if FileMessage.find_by_link_and_recipient_id(file_message_params[:link], file_message_params[:recipient_id])
+        flash[:alert] = 'File was already sent.'
+        format.js
+      elsif @file_message.save
         flash[:notice] = 'File message was successfully sent.'
         format.js
       else
