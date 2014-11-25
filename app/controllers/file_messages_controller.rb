@@ -21,6 +21,20 @@ class FileMessagesController < ApplicationController
   def edit
   end
 
+
+  def incoming
+    render 'file_messages/_list', incoming: true , file_messages: FileMessage.find_by_recipient_id(current_user.id)
+  end
+
+  def outcoming
+    @file_messages = FileMessage.sfnd_by_sender_id(current_user.id)
+    pp "------------------tttttttttttttttttt-------------"
+    pp @file_messages
+    @incoming = false
+    render 'file_messages/_list'
+  end
+
+
   # POST /file_messages
   # POST /file_messages.json
   after_filter :clear_flash

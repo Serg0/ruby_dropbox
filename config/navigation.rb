@@ -84,8 +84,8 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :in_invites, "IN INVITES #{current_user.pending_invited_by.count}", in_invites_users_path
     primary.item :out_invites, "OUT INVITES #{current_user.pending_invited.count}", out_invites_users_path
     primary.item :files, "FILES" do |secondary|
-      secondary.item :in_, 'INCOMING FILES', file_messages_path
-      secondary.item :out, 'OUTGOING FILES', file_messages_path
+      secondary.item :in_, 'INCOMING FILES', incoming_path
+      secondary.item :out, 'OUTGOING FILES', outcoming_path
     end
 
 

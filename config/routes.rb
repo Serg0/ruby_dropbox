@@ -25,6 +25,18 @@ Dropbox::Application.routes.draw do
     end
   end
 
+  get 'incoming', to: 'file_messages#incoming'
+  get 'outcoming', to: 'file_messages#outcoming'
+=begin
+
+  resources :file_messages do
+    collection do
+      get :incoming
+      get :outcoming
+    end
+  end
+=end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
