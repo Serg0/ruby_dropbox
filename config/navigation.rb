@@ -83,7 +83,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :not_friends, "NOT FRIENDS #{current_user.not_friends.count}", not_friends_users_path
     primary.item :in_invites, "IN INVITES #{current_user.pending_invited_by.count}", in_invites_users_path
     primary.item :out_invites, "OUT INVITES #{current_user.pending_invited.count}", out_invites_users_path
-    primary.item :files, "FILES" ,'#' do |secondary|
+    primary.item :files, "FILES" do |secondary|
       secondary.item :in, 'INCOMING FILES', file_messages_path
       secondary.item :out, 'OUTGOING FILES', file_messages_path
     end

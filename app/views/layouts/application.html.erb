@@ -2,32 +2,40 @@
 <html>
 <head>
   <title>Dropbox</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div id="side">
+<div id="side">
 
-      <% if (user_signed_in?)%>
-          <% username = current_user.username.present? ? current_user.username : current_user.email %>
-          <h3> <%="Hello, #{username}"  %></h3>
-          <h3> <%= button_to "Sing out",   destroy_session_path(:user), :method => :delete %></h3>
-          <h3> <%= button_to "Edit Profile", edit_user_registration_path, :method => :get %></h3>
-      <% else %>
-          <h3> <%= button_to "Sing In",   new_session_path(:user), :method => :get   %></h3>
-      <% end %>
+  <% if (user_signed_in?) %>
+      <% username = current_user.username.present? ? current_user.username : current_user.email %>
+      <h3> <%= "Hello, #{username}" %></h3>
+
+      <h3> <%= button_to "Sing out", destroy_session_path(:user), :method => :delete %></h3>
+
+      <h3> <%= button_to "Edit Profile", edit_user_registration_path, :method => :get %></h3>
+  <% else %>
+      <h3> <%= button_to "Sing In", new_session_path(:user), :method => :get %></h3>
+  <% end %>
 
 
-    </div>
-    <br/>
+</div>
+<br/>
 
- <% flash.each do |name, msg| %>
+<% flash.each do |name, msg| %>
     <% if msg.is_a?(String) %>
-         <%= content_tag :div, msg, :class => "flash_#{name}" %>
+        <%= content_tag :div, msg, :class => "flash_#{name}" %>
     <% end %>
+
 <% end %>
 
+<div id="flash_messages">
+  <% flash.each do |type, message| %>
+      <p><%= type %>: <%= message %></p>
+  <% end %>
+</div>
 
 <%= yield %>
 
