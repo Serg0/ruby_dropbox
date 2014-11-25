@@ -23,13 +23,13 @@ class FileMessagesController < ApplicationController
 
 
   def incoming
-    render 'file_messages/_list', incoming: true , file_messages: FileMessage.find_by_recipient_id(current_user.id)
+    @file_messages = FileMessage.where(recipient_id: current_user.id)
+    @incoming = true
+    render 'file_messages/_list'
   end
 
   def outcoming
-    @file_messages = FileMessage.sfnd_by_sender_id(current_user.id)
-    pp "------------------tttttttttttttttttt-------------"
-    pp @file_messages
+    @file_messages = FileMessage.where(sender_id: current_user.id)
     @incoming = false
     render 'file_messages/_list'
   end
