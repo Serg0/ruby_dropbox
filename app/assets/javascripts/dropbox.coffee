@@ -21,7 +21,7 @@ $ ->
 
         return
 
-      linkType: "direct"
+      linkType: "preview"
     )
 
 

@@ -42,7 +42,6 @@ class FileMessagesController < ApplicationController
     file_message_params.merge!(:recipient_id => params[:recipient_id], :sender_id => current_user.id)
     pp file_message_params
 
-
     @file_message = FileMessage.new(file_message_params)
 
     respond_to do |format|

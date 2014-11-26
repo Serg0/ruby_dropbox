@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   scope :not_friends, ->(user){without_user(user).select{|item| ! (user.friend_with?(item) ||
       user.invited?(item) || user.invited_by?(item))}}
 
+  has_many :incoming_files , :class_name => "FileMessage", :foreign_key => "recipient_id"
+  has_many :outcoming_files , :class_name => "FileMessage", :foreign_key => "sender_id"
+
   def not_friends
     User.not_friends(self)
   end

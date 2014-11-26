@@ -19,7 +19,7 @@
         <td><%=  user.username.blank? ? user.email : user.username %></td>
 
         <td><%= link_to file_message.name, file_message.link %></td>
-        <td><%= file_message.bytes %></td>
+        <td><%= number_to_human_size(file_message.bytes) %></td>
         <!--<td><%= file_message.icon %></td>-->
         <!--<td><%= file_message.thumbnailLink %></td>-->
         <td><%= file_message.created_at %></td>
