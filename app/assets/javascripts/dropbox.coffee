@@ -1,10 +1,9 @@
-$ ->
+$ ready = ->
   $("a[data-dropbox-user-id]").click (e) ->
     e.preventDefault()
     userId = $(this).data("dropbox-user-id")
     Dropbox.choose(
       success: (files) ->
-        
         console.log("filename = " + files[0].name)
 
         $.ajax
@@ -26,3 +25,6 @@ $ ->
 
 
     console.log("userId = " + userId)
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
