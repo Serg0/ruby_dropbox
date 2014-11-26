@@ -37,7 +37,7 @@ class FileMessagesController < ApplicationController
 
   # POST /file_messages
   # POST /file_messages.json
-  after_filter :clear_flash
+  after_filter :clear_flash , only: [:create]
   def create
     file_message_params.merge!(:recipient_id => params[:recipient_id], :sender_id => current_user.id)
     pp file_message_params
@@ -81,10 +81,12 @@ class FileMessagesController < ApplicationController
   # DELETE /file_messages/1
   # DELETE /file_messages/1.json
   def destroy
-    @file_message.destroy
     respond_to do |format|
-      format.html { redirect_to file_messages_url }
-      format.json { head :no_content }
+      if @file_message.destroy
+        format.html { redirect_to :back, notice: 'Message removed successfully' }
+      else
+        format.html { redirect_to :back, alert: 'Message was not removed' }
+      end
     end
   end
 

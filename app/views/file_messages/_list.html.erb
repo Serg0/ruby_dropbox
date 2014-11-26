@@ -20,13 +20,11 @@
 
         <td><%= link_to file_message.name, file_message.link %></td>
         <td><%= number_to_human_size(file_message.bytes) %></td>
-        <!--<td><%= file_message.icon %></td>-->
-        <!--<td><%= file_message.thumbnailLink %></td>-->
-        <td><%= file_message.created_at %></td>
-        <!--<td><%= file_message.new %></td>-->
-        <!--<td><%= link_to 'Show', file_message %></td>
-        <td><%= link_to 'Edit', edit_file_message_path(file_message) %></td>
-        <td><%= link_to 'Destroy', file_message, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
+        <td><%= file_message.created_at.to_formatted_s(:short) %></td>
+
+        <td><%= button_to 'REMOVE', file_message, remote: false, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+
+
       </tr>
     <% end %>
   </tbody>
@@ -36,5 +34,3 @@
 <% end %>
 
 <br>
-
-<!--<%= link_to 'New File message', new_file_message_path %>-->
